@@ -1,0 +1,451 @@
+{
+	"info": {
+		"_postman_id": "dfafa15a-4785-497c-82d8-65a5f9467fee",
+		"name": "karthiksaasdnd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33177598"
+	},
+	"item": [
+		{
+			"name": "get",
+			"item": [
+				{
+					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "XDm?5h(q#",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "nckbevijevxk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/billing/deploymentstatus/1889",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"billing",
+								"deploymentstatus",
+								"1889"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeploymentStatusInformation",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "9guyoq#A+S9v",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ryhxnahvmoabty",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/billing/deploymentStatus/30031",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"billing",
+								"deploymentStatus",
+								"30031"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/csp/azure/azurePlan/576c5c4a-a850-4500-b4e8-75fa57812087",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"csp",
+								"azure",
+								"azurePlan",
+								"576c5c4a-a850-4500-b4e8-75fa57812087"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "AzureEntitlements",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var CustomrId = \"4135d023-6c25-439a-9425-9722e9cd285f\"\r",
+									"console.log(\"customer id which is set \" +CustomrId)\r",
+									"pm.globals.set(\"cid\",CustomrId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "9guyoq#A+S9v",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ryhxnahvmoabty",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CustomerId\": {{CustomrId}},\r\n    \"AzurePlanSubscriptionId\": \"90e439fe-74f0-42ee-ddf3-9047eccc4751\",\r\n    \"SubscriptionDisplayName\": \"Azure Entitlement External Test 2\",\r\n    \"BillingAccountId\": \"/providers/Microsoft.Billing/billingAccounts/addd69ec-6b9e-584c-726b-3687bdc47c55:14e782db-2947-45ac-8ea6-b7fa271e61e7_2019-05-31\",\r\n    \"SubscriptionOwnerPrincipalId\": \"d67cc4ab-af0e-439b-97c9-42c48b6abe61\",\r\n    \"Tags\": {\r\n        \"Key\":\"New\",\r\n        \"Value\":\"Azure\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/csp/azure/azureEntitlement/{{hybrSubscriptionId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"csp",
+								"azure",
+								"azureEntitlement",
+								"{{hybrSubscriptionId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AzurePlan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "9guyoq#A+S9v",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ryhxnahvmoabty",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"ReferenceCustomerId\": \"4135d023-6c25-439a-9425-9722e9cd285f\",\r\n    \"LineItems\": [\r\n      {\r\n        \"LineItemNumber\": 0,\r\n        \"FriendlyName\": \"Azure plan\",\r\n        \"OfferId\": \"DZH318Z0BPS6:0001:DZH318Z0BLVR\",\r\n        \"PartnerIdOnRecord\": \"string\",\r\n        \"Quantity\": 1,\r\n        \"TermDuration\": \"string\",\r\n        \"ProductId\": \"string\",\r\n        \"SkuId\": \"string\",\r\n        \"AvailabilityId\": \"string\",\r\n        \"AzureSubscription\": \"string\",\r\n        \"ProductType\": \"Usage\",\r\n        \"CustomTermEndDate\": \"2023-05-05T11:54:47.015Z\"\r\n      }\r\n    ],\r\n    \"ParentSubscriptionId\": \"string\",\r\n    \"IsAddOn\": false,\r\n    \"WapUserId\": \"kameshg@cloudassert.com\",\r\n    \"BillingCycle\": \"Monthly\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/csp/azure/azurePlan/576c5c4a-a850-4500-b4e8-75fa57812087",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"csp",
+								"azure",
+								"azurePlan",
+								"576c5c4a-a850-4500-b4e8-75fa57812087"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AzureUserRoleAssignments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "9guyoq#A+S9v",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ryhxnahvmoabty",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"AzureSubscriptionId\": \"b5a9223b-1a7e-4300-aec8-aae4562de793\",\r\n  \"CustomerId\": \"4135d023-6c25-439a-9425-9722e9cd285f\",\r\n  \"AzureSubscriptionName\": \"Azure Entitlement External Test 1\",\r\n  \"CustomerCompany\": \"CSP_Test_Company\",\r\n  \"IsReactivateSubscription\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/csp/azure/azureUserRole/{{hybrSubscriptionId}}?principalName=karthik@CSPTest2305.onmicrosoft.com&roleDefinitionId=Reader",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"csp",
+								"azure",
+								"azureUserRole",
+								"{{hybrSubscriptionId}}"
+							],
+							"query": [
+								{
+									"key": "principalName",
+									"value": "karthik@CSPTest2305.onmicrosoft.com"
+								},
+								{
+									"key": "roleDefinitionId",
+									"value": "Reader"
+								},
+								{
+									"key": "principalId",
+									"value": "23eabf53-999a-4140-b9c1-89c48f435f91",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCspCustomerWithExisitingHybrCompany",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "XDm?5h(q#",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "nckbevijevxk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"WapUserId\": \"karthickra@cloudassert.com\",\r\n  \"FirstName\": \"API smoke\",\r\n  \"LastName\": \"External smoke L\",\r\n  \"CompanyName\": \"Apitest\",\r\n  \"Email\": \"karthickra@cloudassert.com\",\r\n  \"AddressLine1\": \"630 228th Ave NE\",\r\n  \"AddressLine2\": \"630 228th Ave NE\",\r\n  \"City\": \"Sammamish\",\r\n  \"State\": \"WA\",\r\n  \"PostalCode\": \"98074-7241\",\r\n  \"Country\": \"US\",\r\n  \"PhoneNumber\": \"9898989898\",\r\n  \"Language\": \"en\",\r\n  \"Culture\": \"en-US\", \r\n  \"Domain\": \"APitest12\",\r\n  \"IsAgreementAccepted\": true,\r\n  \"DateAgreed\": \"2023-08-31T05:42:52.093Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/csp/customerwithexisitingtenant/da74f8ac-a10d-4274-9d55-5897cf0a4027",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"csp",
+								"customerwithexisitingtenant",
+								"da74f8ac-a10d-4274-9d55-5897cf0a4027"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateCspCustomerWithNewTenant Copy",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "ryhxnahvmoabty",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "9guyoq#A+S9v",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"OrgId\": \"\",\r\n  \"OfferId\": \"450eafa1-2e47-4322-860d-de214b4c7724\",\r\n  \"IsCloneOfferEnabled\": false,\r\n  \"IsResellerEnable\": true,\r\n  \"ResellerCompanyId\": \"740fb81c-aafd-41b9-bebd-ca5c18fce157\",\r\n  \"ResellerSubscriptionId\": \"\",\r\n  \"IdentityProviderType\": \"AAD\",\r\n  \"PartnerCenterCustomerIds\": [\r\n    \"\"\r\n  ],\r\n  \"CreatedByUserId\": \"\",\r\n  \"HybrCompanyName\": \"reselltwelve\",\r\n  \"HybrCompanyEmail\": \"karthickar@cloudassert.com\",\r\n  \"HybrCompanyAddressLine1\": \"CA\",\r\n  \"HybrCompanyAddressLine2\": \"ca\",\r\n  \"HybrCompanyCity\": \"CBE\",\r\n  \"HybrCompanyState\": \"TN\",\r\n  \"HybrCompanyCountry\": \"US\",\r\n  \"HybrCompanyPostalCode\": \"641666\",\r\n  \"HybrCompanyPhoneNumber\": \"12345789\",\r\n  \"SubscriptionName\": \"reselltwelve Subscription\",\r\n  \"CloneOfferName\": \"\",\r\n  \"ClonePlanName\": \"\",\r\n  \"ClonePricingProfileName\": \"\",\r\n  \"SubscriptionId\": \"\",\r\n  \"WapUserId\": \"kameshg@cloudassert.com\",\r\n  \"ExistingCustomerId\": \"\",\r\n  \"FirstName\": \"ExternalSaasDND\",\r\n  \"LastName\": \"DND-External\",\r\n  \"CompanyName\": \"ExternalValidationSaaS-DND\",\r\n  \"Email\": \"kameshg@cloudassert.com\",\r\n  \"TenantId\": \"\",\r\n  \"AddressLine1\": \"636 228th Ave NE\",\r\n  \"AddressLine2\": \"636 228th Ave NE\",\r\n  \"City\": \"Sammamish\",\r\n  \"Region\": \"\",\r\n  \"State\": \"WA\",\r\n  \"PostalCode\": \"98074-7241\",\r\n  \"Country\": \"US\",\r\n  \"PhoneNumber\": \"9898989898\",\r\n  \"Language\": \"en\",\r\n  \"Culture\": \"en-US\",\r\n  \"Domain\": \"reselltwelve12\",\r\n  \"IsAgreementAccepted\": true,\r\n  \"DateAgreed\": \"2023-05-16\",\r\n  \"UserCredentials\": {\r\n    \"Password\": \"\",\r\n    \"UserName\": \"\"\r\n  },\r\n  \"Qualification\": \"\",\r\n  \"OrganizationRegistrationNumber\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "pass@word1",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://karthisaasdnd.admin.hybr.com/",
+			"type": "string"
+		},
+		{
+			"key": "hybrSubscriptionId",
+			"value": "f102dcb6-c9ef-4161-a88d-85eec2248e03",
+			"type": "string"
+		}
+	]
+}
